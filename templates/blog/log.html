@@ -14,28 +14,40 @@
           <a href="/" class="cancel" data-role="button">Cancel</a>
         </div>
    </div>
-   <script type="text/javascript">
-	var cpt=0;
-	var pass=document.getElementById("user_password");
-		var label=document.getElementById("lab");
-		var ok=document.getElementById("ok");
-	function test() {cpt++;
-										
-										if(pass.value.length<6){
-											label.style.color="red";
-											ok.disabled=true;
-											} 
-											else{
-											label.style.color="black";
-											ok.disabled=false;
-											}}
-		test();
-		
-		
-		pass.addEventListener("keyup",test);
-		ok.addEventListener("click",function(){alert(pass.value);})
+   
 											
    
+  
+   <script  src="http://code.jquery.com/jquery-2.0.3.min.js"></script> 
+   <script type="text/javascript">
+   //il est plus conseillé de créer des variable à la place d'utiliser plusieurs $!!!
+   
+   function test (){
+   
+  if($("#user_password").val().length<6){
+	$("#lab").css("color","red");
+		$("#ok").attr("disabled",true);
+
+		
+
+	}
+ else{
+	$("#lab").css("color","black");
+	$("#ok").attr("disabled",false);
+	}
+  }
+  test();
+   
+   
+   console.log("jquery ok");
+   
+   $("#user_password").bind("keyup",test);
+  
+  
+	
+			
+   
    </script>
+   
 </form>
 
