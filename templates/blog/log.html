@@ -1,0 +1,41 @@
+<form action="/user/signin" method="post">
+  <div style="margin:0;padding:0;display:inline">
+<input name="authenticity_token" type="hidden" value="zM6XXrqjTRBHKs37Q2wpxy5afLWgGM1DQV/2Vdo45PA=" />
+</div>      <p>      <label for="user_Username or E-Mail">Username or e-mail</label> : <br />
+        <input autocapitalize="off" class="title" id="user_username" maxlength="50" name="user[username]" size="20" type="text" />
+      </p>
+		<p>
+	  
+        <label id="lab" for="user_Password">Password</label> : <br />
+        <input class="title" id="user_password" maxlength="15" name="user[password]" size="20" type="password" />
+      </p>      <div class="span-10 clear prepend-top">
+        <div style="margin-left:95px;">
+          <input class="ok" name="commit" type="submit" value="OK" id="ok" />
+          <a href="/" class="cancel" data-role="button">Cancel</a>
+        </div>
+   </div>
+   <script type="text/javascript">
+	var cpt=0;
+	var pass=document.getElementById("user_password");
+		var label=document.getElementById("lab");
+		var ok=document.getElementById("ok");
+	function test() {cpt++;
+										
+										if(pass.value.length<6){
+											label.style.color="red";
+											ok.disabled=true;
+											} 
+											else{
+											label.style.color="black";
+											ok.disabled=false;
+											}}
+		test();
+		
+		
+		pass.addEventListener("keyup",test);
+		ok.addEventListener("click",function(){alert(pass.value);})
+											
+   
+   </script>
+</form>
+
