@@ -1,13 +1,13 @@
-<form action="/user/signin" method="post">
+<form action="/signin" method="post">
   <div style="margin:0;padding:0;display:inline">
 <input name="authenticity_token" type="hidden" value="zM6XXrqjTRBHKs37Q2wpxy5afLWgGM1DQV/2Vdo45PA=" />
 </div>      <p>      <label for="user_Username or E-Mail">Username or e-mail</label> : <br />
-        <input autocapitalize="off" class="title" id="user_username" maxlength="50" name="user[username]" size="20" type="text" />
+        <input autocapitalize="off" class="title" id="username" maxlength="50" name="username" size="20" type="text" />
       </p>
 		<p>
 	  
         <label id="lab" for="user_Password">Password</label> : <br />
-        <input class="title" id="user_password" maxlength="15" name="user[password]" size="20" type="password" />
+        <input class="title" id="password" maxlength="15" name="password" size="20" type="password" />
       </p>      <div class="span-10 clear prepend-top">
         <div style="margin-left:95px;">
           <input class="ok" name="commit" type="submit" value="OK" id="ok" />
@@ -24,7 +24,7 @@
    
    function test (){
    
-  if($("#user_password").val().length<6){
+  if($("#password").val().length<6){
 	$("#lab").css("color","red");
 		$("#ok").attr("disabled",true);
 
@@ -41,7 +41,7 @@
    
    console.log("jquery ok");
    
-   $("#user_password").bind("keyup",test);
+   $("#password").bind("keyup",test);
   
   
 	
