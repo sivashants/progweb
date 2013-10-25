@@ -1,0 +1,20 @@
+<h1> Connexion</h1>
+
+
+
+{% if error %}
+<p><strong> user ou mdp incorrect</strong></p>
+{% else %}
+
+{% if user.is_authenticated %}
+
+<p>Vous êtes connecté, {{user.username}} !  <a href="/deconnexion">deconnecter<p>
+
+{% else %}
+<form method="post" action=".">
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit"/>
+</form>
+{% endif %}
+{% endif %}
