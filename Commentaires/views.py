@@ -6,9 +6,9 @@ from Commentaires.forms import ConnexionForm
 from django.core.urlresolvers import reverse 
 def home(request):
 
-	return render(request,'Commentaires/main.html')
+#	return render(request,'Commentaires/main.html')
 
-def connexion(request):
+#def connexion(request):
 	error = False
 	if request.method == "POST":
 		form = ConnexionForm(request.POST)
@@ -24,7 +24,7 @@ def connexion(request):
 	else:
 		form = ConnexionForm()
 
-	return render(request,'Commentaires/connexion.html',locals())
+	return render(request,'Commentaires/main.html',locals())
 
 def deconnexion(request):
 	logout(request)
