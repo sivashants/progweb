@@ -33,7 +33,7 @@ def deconnexion(request):
 #	return render(request,'Commentaires/main.html')
 
 def movies(request):
-		error = False
+	error = False
 	if request.method == "POST":
 		form = ConnexionForm(request.POST)
      
