@@ -10,6 +10,7 @@ urlpatterns = patterns('',
       url(r'^deconnexion/$','Commentaires.views.deconnexion',name='deconnexion'),
       url(r'^movies/$','Commentaires.views.movies',name='movies'),
       url(r'^movies/(?P<id>\d+)$','Commentaires.views.lire'),       
+      url(r'^tv-series/$','Commentaires.views.serie'),
     # Examples:
     # url(r'^$', 'cinecritics.views.home', name='home'),
     # url(r'^cinecritics/', include('cinecritics.foo.urls')),

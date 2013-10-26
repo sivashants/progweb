@@ -4,8 +4,8 @@ p
 {
 	color: white;
 }
-div#menu{
-	float:left;
+nav#menu{
+	float:top-left;
 	width:33%
 	
 	

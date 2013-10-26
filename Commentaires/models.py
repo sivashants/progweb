@@ -16,4 +16,9 @@ class Movie(models.Model):
 	def __unicode__(self):
 		return u"%s" % self.titre
 
-
+class Serie(models.Model):
+	titre=realisateur = models.CharField(max_length=100)
+	realisateur=models.CharField(max_length=42)
+	resume=models.TextField(null=True)
+	seasons=models.IntegerField()
+	categorie=models.ForeignKey ('Categorie')
