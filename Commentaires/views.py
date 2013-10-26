@@ -33,11 +33,39 @@ def deconnexion(request):
 #	return render(request,'Commentaires/main.html')
 
 def movies(request):
+		error = False
+	if request.method == "POST":
+		form = ConnexionForm(request.POST)
+     
+		if form.is_valid():
+			username = form.cleaned_data['username']
+			password = form.cleaned_data['password']
+			user = authenticate(username=username, password=password)
+			if user:
+				login(request,user)
+			else:
+				error = True
+	else:
+		form = ConnexionForm()
 	movies=Movie.objects.all()
 	return render(request,'Commentaires/movies.html',locals())
 	#return connexion(request,'Commentaires/movies.html')
 
 def lire(request, id):
+		error = False
+	if request.method == "POST":
+		form = ConnexionForm(request.POST)
+     
+		if form.is_valid():
+			username = form.cleaned_data['username']
+			password = form.cleaned_data['password']
+			user = authenticate(username=username, password=password)
+			if user:
+				login(request,user)
+			else:
+				error = True
+	else:
+		form = ConnexionForm()
 	try:
 		movie=Movie.objects.get(id=id)
 	except movie.DoesNotExist:
