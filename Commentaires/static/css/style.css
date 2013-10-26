@@ -2,13 +2,24 @@ body { background-color:#3399FF }
 
 p
 {
-	color: blue;
+	color: white;
+}
+div#menu{
+	float:left;
+	width:33%
+	
+	
+
 }
 
 div#connexion 
 {
-	background-color: green;
+	
 	float:right;
 	width: 33%
 }
 
+div#center{
+
+	overflow=hidden;
+}

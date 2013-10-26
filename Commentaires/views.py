@@ -5,8 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from Commentaires.forms import ConnexionForm
 from django.core.urlresolvers import reverse 
 from Commentaires.models import Movie
-
-def connexion(request,template_name):
+def home(request):
 	error = False
 	if request.method == "POST":
 		form = ConnexionForm(request.POST)
@@ -21,16 +20,17 @@ def connexion(request,template_name):
 				error = True
 	else:
 		form = ConnexionForm()
-
-	return render(request,template_name,locals())
+#def base(request):
+	return render(request,"Commentaires/main.html",locals())
 
 
 def deconnexion(request): 
 	logout(request)
 	return redirect(reverse(home))
 
-def home(request):
-	return connexion(request,'Commentaires/main.html')
+#def home(request):
+#	connect(request)
+#	return render(request,'Commentaires/main.html')
 
 def movies(request):
 	movies=Movie.objects.all()

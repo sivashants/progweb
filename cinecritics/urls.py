@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
       url(r'^$','Commentaires.views.home',name='home'),
-      url(r'^connexion/$','Commentaires.views.home', name='connexion'),
+     # url(r'^base/$','Commentaires.views.base', name='base'),
       url(r'^deconnexion/$','Commentaires.views.deconnexion',name='deconnexion'),
       url(r'^movies/$','Commentaires.views.movies',name='movies'),
       url(r'^movies/(?P<id>\d+)$','Commentaires.views.lire'),       

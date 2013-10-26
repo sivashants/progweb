@@ -5,16 +5,15 @@
 </html>
         <head>        
                 <meta charset="utf-8"/>
-                <title> Cinecritics </title>
+               
                 <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all">
-
-	{% block title %} Cinecritics : Donnez vos avis sur les films, serie,mangas ...{% endblock %} 
-
+	<title>							{% block title %} Cinecritics : Données vos avis sur les films, serie,mangas ...{% endblock %}               </title>
         </head>
         
         <body>
                 
                 <h1 id="title"> Cinecritics </h1>
+
                {% block nav %} 
                 <!-- Side menu --> 
                 <nav id="menu">
@@ -29,7 +28,7 @@
                         </ul>
                 </nav>
                 {% endblock %}               
-
+<div id="connexion">
 
 {% block connexion %}
 {% if error %}
@@ -48,4 +47,10 @@
 </form>
 {% endif %}
 {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+
+
 {% endblock %}
