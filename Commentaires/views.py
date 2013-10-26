@@ -4,11 +4,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from Commentaires.forms import ConnexionForm
 from django.core.urlresolvers import reverse 
-def home(request):
 
-#	return render(request,'Commentaires/main.html')
 
-#def connexion(request):
+def connexion(request,template_name):
 	error = False
 	if request.method == "POST":
 		form = ConnexionForm(request.POST)
@@ -24,10 +22,13 @@ def home(request):
 	else:
 		form = ConnexionForm()
 
-	return render(request,'Commentaires/main.html',locals())
+	return render(request,template_name,locals())
+
 
 def deconnexion(request): 
 	logout(request)
 	return redirect(reverse(home))
 
-
+def home(request):
+	return connexion(request,'Commentaires/main.html')
+	#return render(request,'Commentaires/main.html')

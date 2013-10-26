@@ -1,12 +1,14 @@
-#body { background-color:#3399FF }
+body { background-color:#3399FF }
 
 p
 {
 	color: blue;
 }
 
-#main 
+div#connexion 
 {
 	background-color: green;
+	float:right;
+	width: 33%
 }
 
