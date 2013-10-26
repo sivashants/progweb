@@ -26,8 +26,8 @@ def home(request):
 
 	return render(request,'Commentaires/main.html',locals())
 
-def deconnexion(request):
+def deconnexion(request): 
 	logout(request)
-	return redirect(reverse(connexion))
+	return redirect(reverse(home))
 
 

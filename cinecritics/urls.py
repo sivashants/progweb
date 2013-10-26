@@ -6,8 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
       url(r'^$','Commentaires.views.home'),
-      url(r'^connexion/$','Commentaires.views.connexion', name='connexion'),  	
-      url(r'^signin','Commentaires.views.logedin'),
+      url(r'^connexion/$','Commentaires.views.home', name='connexion'),
       url(r'^deconnexion/$','Commentaires.views.deconnexion',name='deconnexion'),
     # Examples:
     # url(r'^$', 'cinecritics.views.home', name='home'),
