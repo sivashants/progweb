@@ -1,0 +1,3 @@
+<h1>{{ movie.titre}}<span class="small"> dans {{movie.categorie.nom}}</span></h1>
+<p class="info">Réalisé par {{movie.realisateur}} sortie le {{movie.release_date|date:"DATE_FORMAT"}}</p>
+<div class="contenu">{{movie.resume|linebreaks}}</div>

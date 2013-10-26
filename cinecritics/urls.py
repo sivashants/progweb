@@ -5,9 +5,11 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-      url(r'^$','Commentaires.views.home'),
+      url(r'^$','Commentaires.views.home',name='home'),
       url(r'^connexion/$','Commentaires.views.home', name='connexion'),
       url(r'^deconnexion/$','Commentaires.views.deconnexion',name='deconnexion'),
+      url(r'^movies/$','Commentaires.views.movies',name='movies'),
+      url(r'^movies/(?P<id>\d+)$','Commentaires.views.lire'),       
     # Examples:
     # url(r'^$', 'cinecritics.views.home', name='home'),
     # url(r'^cinecritics/', include('cinecritics.foo.urls')),

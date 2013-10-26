@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from Commentaires.forms import ConnexionForm
 from django.core.urlresolvers import reverse 
-
+from Commentaires.models import Movie
 
 def connexion(request,template_name):
 	error = False
@@ -31,4 +31,16 @@ def deconnexion(request):
 
 def home(request):
 	return connexion(request,'Commentaires/main.html')
-	#return render(request,'Commentaires/main.html')
+
+def movies(request):
+	movies=Movie.objects.all()
+	return render(request,'Commentaires/movies.html',locals())
+	#return connexion(request,'Commentaires/movies.html')
+
+def lire(request, id):
+	try:
+		movie=Movie.objects.get(id=id)
+	except movie.DoesNotExist:
+	  	return HttpResponse(u"Film non trouve")
+	return render(request,'Commentaires/detail.html',locals())
+	

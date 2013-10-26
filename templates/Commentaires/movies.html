@@ -21,6 +21,21 @@
 				<li> <a href="http://eurosport.fr" >Sports</a> </li>
 			</ul>
 		</div>
+	
 		
+		{% for movie in movies %}
+		<div class="movie">
+			<h3>{{movie.titre}}</h3>
+			<p>{{movie.resume}}</p>
+			<p><a href="{{ movie.id }}">Details</a>
+		</div>
+		{% empty %}
+		<p> Aucun films dispo </p>
+		{% endfor %}
+		
+
+	
+		</div>		
+	
 	</body>
 </html>
