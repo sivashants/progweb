@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{% block content %}
+<h2>{{ movie.titre}}<span class="small"> de type {{movie.categorie.nom}}</span></h2>
+
+<p class="info">Réalisé par {{movie.realisateur}} sortie le {{movie.release_date|date:"DATE_FORMAT"}}</p>
+<div class="contenu">{{movie.resume|linebreaks}}</div>
+
+<form method="post" action=".">
+{% csrf_token %}
+{{commentform.as_p}}
+<input type="submit"/>
+</form>
+
+{% endblock %}

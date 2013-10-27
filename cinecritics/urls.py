@@ -9,8 +9,11 @@ urlpatterns = patterns('',
      # url(r'^base/$','Commentaires.views.base', name='base'),
       url(r'^deconnexion/$','Commentaires.views.deconnexion',name='deconnexion'),
       url(r'^movies/$','Commentaires.views.movies',name='movies'),
-      url(r'^movies/(?P<id>\d+)$','Commentaires.views.lire'),       
+      url(r'^movies/(?P<id>\d+)$','Commentaires.views.detail_movie'),       
+      url(r'^movies/(?P<id>\d+)/comments/$','Commentaires.views.comment_movie'),
       url(r'^tv-series/$','Commentaires.views.serie'),
+      url(r'^tv-series/(?P<id>\d+)$','Commentaires.views.detail_serie'),
+
     # Examples:
     # url(r'^$', 'cinecritics.views.home', name='home'),
     # url(r'^cinecritics/', include('cinecritics.foo.urls')),

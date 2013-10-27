@@ -26,17 +26,19 @@
 
                         </ul>
                 </nav>
-                {% endblock %}               
-<div id="connexion">
+                {% endblock %}             
 
 {% block connexion %}
+<div id="connexion">
+
+
 {% if error %}
 <p><strong> user ou mdp incorrect</strong></p>
 {% else %}
 
 {% if user.is_authenticated %}
 
-<p>Vous êtes connecté, {{user.username}} !  <a href="/deconnexion">deconnecter<p>
+<p>Vous êtes connecté, {{user.username}} !  <a href="/deconnexion">deconnecter</a><p>
 
 {% else %}
 <form method="post" action=".">

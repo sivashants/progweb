@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 class Categorie(models.Model):
 	nom = models.CharField(max_length=30)
@@ -17,8 +17,18 @@ class Movie(models.Model):
 		return u"%s" % self.titre
 
 class Serie(models.Model):
-	titre=realisateur = models.CharField(max_length=100)
+	titre = models.CharField(max_length=100)
 	realisateur=models.CharField(max_length=42)
 	resume=models.TextField(null=True)
-	seasons=models.IntegerField()
-	categorie=models.ForeignKey ('Categorie')
+	seasons=models.IntegerField() 
+	Completed=models.BooleanField()
+	def __unicode__(self):
+		return u"%s" % self.titre
+
+class Movie_Comments(models.Model):
+	titre = models.CharField(max_length=100)
+	contenu = models.TextField(null=False)
+	author= models.ForeignKey(User)
+	def __unicode__(self):
+		return u"%s" % self.titre
+
