@@ -1,4 +1,5 @@
 # Create your views here.
+from django.db import models
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -46,7 +47,7 @@ def movies(request):
 		form = ConnexionForm()
 	movies=Movie.objects.all()
 	return render(request,'Commentaires/movies.html',locals())
-	#return connexion(request,'Commentaires/movies.html')
+	#return 
 
 def detail_movie(request, id):
 	error = False
@@ -68,6 +69,7 @@ def detail_movie(request, id):
 		movie=Movie.objects.get(id=id)
 	except movie.DoesNotExist:
 	  	return HttpResponse(u"Film non trouve")
+	comments=Movie_Comments.objects.all()
 	return render(request,'Commentaires/detail_movie.html',locals())
 
 def serie(request):
@@ -87,17 +89,17 @@ def serie(request):
 		form = ConnexionForm()
 	series=Serie.objects.all()
 	return render(request,'Commentaires/tvShow.html',locals())
-	#return connexion(request,'Commentaires/movies.html')
+	
 
 def comment_movie(request,id):
-	
+		
 	if request.method == 'POST':
-		form = CommentsForm(request.POST)
+			
+		comment=Movie_Comments(author=request.user)
+		form = CommentsForm(request.POST,instance=comment)
 		if form.is_valid():
-			titre = form.cleaned_data['titre']
-			contenu = form.cleaned_data['contenu']
-			author = request.user
-			Movie_Comments(titre,contenu,author).save()
+			form.save()
+		
 	else:
 		form = CommentsForm()
 	return render(request,'Commentaires/comment_movie.html',locals())	
@@ -120,7 +122,7 @@ def detail_serie(request, id):
 	try:
 		serie=Serie.objects.get(id=id)
 	except serie.DoesNotExist:
-	  	return HttpResponse(u"Film non trouve")
+	  	return HttpResponse(u"serie non trouve")
 	return render(request,'Commentaires/detail_serie.html',locals())
 
 

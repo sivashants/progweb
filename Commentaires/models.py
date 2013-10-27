@@ -29,6 +29,15 @@ class Movie_Comments(models.Model):
 	titre = models.CharField(max_length=100)
 	contenu = models.TextField(null=False)
 	author= models.ForeignKey(User)
+	movie = models.ForeignKey(Movie)
+	def __unicode__(self):
+		return u"%s" % self.titre
+
+class Serie_Comments(models.Model):
+	titre = models.CharField(max_length=100)
+	contenu = models.TextField(null=False)
+	author= models.ForeignKey(User)
+	serie = models.ForeignKey(Serie)
 	def __unicode__(self):
 		return u"%s" % self.titre
 

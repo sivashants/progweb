@@ -4,11 +4,13 @@
 
 <p class="info">Réalisé par {{movie.realisateur}} sortie le {{movie.release_date|date:"DATE_FORMAT"}}</p>
 <div class="contenu">{{movie.resume|linebreaks}}</div>
-
-<form method="post" action=".">
-{% csrf_token %}
-{{commentform.as_p}}
-<input type="submit"/>
-</form>
-
+{% if user.is_authenticated %}
+<p><a href="{{movie.id}}/comments"> laissez votre avis </a></p>
+{%endif%}
+{% for comment in comments %}
+ <div class="comments">
+	<h3>{{comment.titre}}</h3>
+	<p>{{comment.contenu}}</p>
+	<p>{{comment.author.username}}</p>
+{% endfor %}
 {% endblock %}
