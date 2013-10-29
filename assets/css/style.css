@@ -1,0 +1,25 @@
+body { background-color:#3399FF }
+
+p
+{
+	color: white;
+}
+nav#menu{
+	float:top-left;
+	width:33%
+	
+	
+
+}
+
+div#connexion 
+{
+	
+	float:right;
+	width: 33%
+}
+
+div#center{
+
+	overflow=hidden;
+}

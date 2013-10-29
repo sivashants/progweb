@@ -68,7 +68,7 @@ STATIC_URL = '/assets/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-	'/root/webapps/hello_django/cinecritics/assets',
+	'/home/florent/Projects/flo/cinecritics/assets',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -109,7 +109,7 @@ ROOT_URLCONF = 'cinecritics.urls'
 WSGI_APPLICATION = 'cinecritics.wsgi.application'
 
 TEMPLATE_DIRS = (
-	"/root/webapps/hello_django/cinecritics/templates"
+	"/home/florent/Projects/flo/cinecritics/templates"
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
