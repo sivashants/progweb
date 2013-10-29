@@ -1,12 +1,13 @@
 
 <!DOCTYPE html>
-<html>
 <html lang="fr">
-</html>
+
         <head>        
                 <meta charset="utf-8"/>
                
                 <link href="/assets/css/style.css" rel="stylesheet" type="text/css" media="all">
+		<link href="../assets/css/bootstrap.css" rel="stylesheet">
+		<link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 	<title>							{% block title %} Cinecritics : Données vos avis sur les films, serie,mangas ...{% endblock %}               </title>
         </head>
         
@@ -16,6 +17,8 @@
 
                {% block nav %} 
                 <!-- Side menu --> 
+
+	<div class="span2">
                 <nav id="menu">
                         <ul >
                                 <li> <a href="/">home</a> </li>
@@ -26,32 +29,45 @@
 
                         </ul>
                 </nav>
+
+	</div>
                 {% endblock %}             
 
-{% block connexion %}
-<div id="connexion">
+	{% block content %}
 
 
-{% if error %}
-<p><strong> user ou mdp incorrect</strong></p>
-{% else %}
+	{% endblock %}
 
-{% if user.is_authenticated %}
+	{% block connexion %}
 
-<p>Vous êtes connecté, {{user.username}} !  <a href="/deconnexion">deconnecter</a><p>
-
-{% else %}
-<form method="post" action=".">
-{% csrf_token %}
-{{form.as_p}}
-<input type="submit"/>
-</form>
-{% endif %}
-{% endif %}
-</div>
-{% endblock %}
-
-{% block content %}
+	<div class="span3">
+		<div class="connexion">
 
 
-{% endblock %}
+			{% if error %}
+			<p><strong> user ou mdp incorrect</strong></p>
+			{% else %}
+
+			{% if user.is_authenticated %}
+
+			<p>Vous êtes connecté, {{user.username}} ! <a href="/deconnexion">deconnecter</a><p>
+
+			{% else %}
+			<form method="post" action=".">
+			{% csrf_token %}
+			{{form.as_p}}
+			<input type="submit"/>
+			</form>
+			{% endif %}
+			{% endif %}
+		</div>
+	</div>
+
+	{% endblock %}
+
+
+	<script src="../assets/js/jquery-1.10.2.js"></script>
+	<script src="../assets/js/bootstrap.min.js"></script>
+
+</body>
+</html>

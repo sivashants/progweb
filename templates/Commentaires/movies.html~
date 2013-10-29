@@ -2,19 +2,16 @@
 
 	
 {%block content%}
+		{% for movie in movies %}
 	<div class="span6">
 		<div class="movie">
-		{% for movie in movies %}
 			<h3>{{movie.titre}}</h3>
 			<p>{{movie.resume}}</p>
 			<p><a href="{{ movie.id }}">Details</a>
-		
+		</div>
 		{% empty %}
 		<p> Aucun films dispo </p>
-
 		{% endfor %}
-		
-		</div>
 	</div>
 
 {%endblock%}
