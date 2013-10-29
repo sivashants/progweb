@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from Commentaires.forms import ConnexionForm, CommentsForm
 from django.core.urlresolvers import reverse 
 from Commentaires.models import Movie, Serie, Movie_Comments
+from django.contrib.auth.forms import UserCreationForm
 def home(request):
 	error = False
 	if request.method == "POST":
@@ -72,6 +73,24 @@ def detail_movie(request, id):
 	comments=Movie_Comments.objects.all()
 	return render(request,'Commentaires/detail_movie.html',locals())
 
+
+def comment_movie(request,id):
+	save=False
+	if request.method == 'POST':
+		movie=Movie.objects.get(id=id)		
+		comment=Movie_Comments(author=request.user,movie=movie)
+		form = CommentsForm(request.POST,instance=comment)
+		if form.is_valid():
+			save=True
+			form.save()
+		
+	else:
+		form = CommentsForm()
+	return render(request,'Commentaires/comment_movie.html',locals())	
+
+
+
+
 def serie(request):
 	error = False
 	if request.method == "POST":
@@ -90,19 +109,6 @@ def serie(request):
 	series=Serie.objects.all()
 	return render(request,'Commentaires/tvShow.html',locals())
 	
-
-def comment_movie(request,id):
-		
-	if request.method == 'POST':
-			
-		comment=Movie_Comments(author=request.user)
-		form = CommentsForm(request.POST,instance=comment)
-		if form.is_valid():
-			form.save()
-		
-	else:
-		form = CommentsForm()
-	return render(request,'Commentaires/comment_movie.html',locals())	
 
 def detail_serie(request, id):
 	error = False
@@ -125,4 +131,13 @@ def detail_serie(request, id):
 	  	return HttpResponse(u"serie non trouve")
 	return render(request,'Commentaires/detail_serie.html',locals())
 
-
+def signup(request):
+	save = False
+	if request.method == "POST":
+		form=UserCreationForm(request.POST)
+		if form.is_valid:
+			form.save()
+			save=True
+	else:
+		form=UserCreationForm()
+	return render(request,'Commentaires/signup.html',locals())	

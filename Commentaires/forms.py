@@ -9,5 +9,5 @@ class CommentsForm(forms.ModelForm):
 	
 	class Meta:
 		model=Movie_Comments
-		exclude=('author')	
+		exclude=('author','movie')	
 
