@@ -40,4 +40,3 @@ class Serie_Comments(models.Model):
 	serie = models.ForeignKey(Serie)
 	def __unicode__(self):
 		return u"%s" % self.titre
-

@@ -6,7 +6,7 @@
 		<div class="movie">
 		{% for movie in movies %}
 			<h3>{{movie.titre}}</h3>
-			<p>{{movie.resume}}</p>
+			<p>{{movie.resume|truncatewords_html:80}}</p>
 			<p><a href="{{ movie.id }}">Details</a>
 		
 		{% empty %}

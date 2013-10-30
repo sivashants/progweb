@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block connexion %}
+
+{% endblock %}
+
+{% block content %}
+ <div>
+{% if save = True %}
+<p> Merci pour votre contribution,<a href="/tv-series/{{id}}"> retourner à la fiche serie </a></p>
+{% else %}
+<form  method="post" action=".">
+
+ {% csrf_token %}
+ {{ form.as_p }}
+ <input type="submit"/>
+</form>
+{% endif %}
+</div>
+	
+{% endblock %}
+

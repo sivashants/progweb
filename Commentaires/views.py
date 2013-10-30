@@ -3,13 +3,14 @@ from django.db import models
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from Commentaires.forms import ConnexionForm, CommentsForm
+from Commentaires.forms import ConnexionForm, MovieCommentsForm, SerieCommentsForm
 from django.core.urlresolvers import reverse 
-from Commentaires.models import Movie, Serie, Movie_Comments
+from Commentaires.models import Movie, Serie, Movie_Comments, Serie_Comments
 from django.contrib.auth.forms import UserCreationForm
 def home(request):
 	error = False
 	if request.method == "POST":
+
 		form = ConnexionForm(request.POST)
      
 		if form.is_valid():
@@ -79,13 +80,13 @@ def comment_movie(request,id):
 	if request.method == 'POST':
 		movie=Movie.objects.get(id=id)		
 		comment=Movie_Comments(author=request.user,movie=movie)
-		form = CommentsForm(request.POST,instance=comment)
+		form = SerieCommentsForm(request.POST,instance=comment)
 		if form.is_valid():
 			save=True
 			form.save()
 		
 	else:
-		form = CommentsForm()
+		form = SerieCommentsForm()
 	return render(request,'Commentaires/comment_movie.html',locals())	
 
 
@@ -129,15 +130,33 @@ def detail_serie(request, id):
 		serie=Serie.objects.get(id=id)
 	except serie.DoesNotExist:
 	  	return HttpResponse(u"serie non trouve")
+	comments=Serie_Comments.objects.all()
 	return render(request,'Commentaires/detail_serie.html',locals())
+
+def comment_serie(request,id):
+	save=False
+	if request.method == 'POST':
+		serie=Serie.objects.get(id=id)		
+		comment=Serie_Comments(author=request.user,serie=serie)
+		form = SerieCommentsForm(request.POST,instance=comment)
+		if form.is_valid():
+			save=True
+			form.save()
+		
+	else:
+		form = SerieCommentsForm()
+	return render(request,'Commentaires/comment_serie.html',locals())	
+
+
+
 
 def signup(request):
 	save = False
 	if request.method == "POST":
-		form=UserCreationForm(request.POST)
+		form = UserCreationForm(request.POST)
 		if form.is_valid:
 			form.save()
 			save=True
 	else:
-		form=UserCreationForm()
+		form= UserCreationForm()
 	return render(request,'Commentaires/signup.html',locals())	
