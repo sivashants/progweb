@@ -31,4 +31,4 @@ cd cinecritics
 python manage.py syncdb
 python manage.py sql Commentaires
 python manage.py loaddata all.json
-python runserver address:port
+python manage.py runserver [ipadd:port]
