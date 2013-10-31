@@ -14,7 +14,7 @@
         <body>
                 
                 <h1 id="title"> Cinecritics </h1>
-
+	<div class="row-fluid">
                {% block nav %} 
                 <!-- Side menu --> 
 
@@ -32,12 +32,12 @@
 
 	</div>
                 {% endblock %}             
-
+<div class="span6">
 	{% block content %}
-
-
+		
 	{% endblock %}
 
+</div>	
 	{% block connexion %}
 
 	<div class="span3">
@@ -66,12 +66,12 @@
 
 	{% endblock %}
 
-
+</div>
 	<script src="../assets/js/jquery-1.10.2.js"></script>
 	<script src="../assets/js/bootstrap.min.js"></script>
 
 </body>
-<footer>
-	<p> site créé dans le cadre du module programmation web par Florent ANICET et Shanthan SIVARAJAH </p>
+<footer id="pieddepage">
+	 site créé dans le cadre du module programmation web par Florent ANICET et Shanthan SIVARAJAH
 </footer>
 </html>

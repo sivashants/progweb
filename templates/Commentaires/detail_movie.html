@@ -9,10 +9,10 @@
 {%endif%}
 {% for comment in comments %}
 {%if comment.movie = movie %}	
- <div class="comments">
-	<h3>{{comment.titre}}</h3>
-	<p>{{comment.contenu}}</p>
-	<p>{{comment.author.username}}</p>
+<div class="comments">
+<h3>{{comment.titre}}</h3>
+<p>{{comment.contenu}}</p>
+<p>{{comment.author.username}}</p>
 {%endif%}
 {% endfor %}
 {% endblock %}

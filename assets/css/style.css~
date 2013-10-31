@@ -22,8 +22,6 @@ div#center{
 	overflow=hidden;
 }
 
-div#pieddepage {
+footer { 
 	color:#000000;
-	text-align:center
 }
-
