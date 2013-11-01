@@ -31,4 +31,14 @@ cd cinecritics
 python manage.py syncdb
 python manage.py sql Commentaires
 python manage.py loaddata all.json
+modifier l'adresse ip ligne 23 avec celle correspondante
+mv cinecritics_nginx /etc/nginx/sites-enabled
+service nginx restart
+pip install gunicorn
+gunicorn cinecritics.wsgi:application --bind=127.0.0.1:8001
+lancer un navigateur et entrer l'adresse ip utilisée ligne 34
+
+dans le cas ou il y aurait des bug d'affichage on peut lancer l'application avec cette commande : 
 python manage.py runserver [ipadd:port]
+
+Attention cette derniere n'est à utiliser qu'en dev!!
