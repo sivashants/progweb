@@ -15,8 +15,10 @@
 </head>
         
 <body>
-        
-        <h1 id="site-name"> Cinecritics </h1>
+        <header id="header">
+	        <h1 id="site-name"> Cinecritics </h1>
+	</header>
+
 	<div class="row-fluid">
 	       {% block nav %} 
 	        <!-- Side menu --> 
@@ -33,7 +35,12 @@
 	        {% endblock %} 
 	    
 		<div class="span7">
-			{% block content %}	
+			{% block content %}
+				<div class="introduction">
+					Bienvenue sur notre site communautaire ! </br>
+					
+					Ici vous êtes libre de partager votre avis sur les séries et sur les films avec de vrais passionés.
+				 </div>
 			{% endblock %}
 		</div>	
 
@@ -43,20 +50,24 @@
 			<div class="connexion">
 
 				{% if error %}
-				<p><strong> user ou mdp incorrect</strong></p>
+				<div>
+					user ou mdp incorrect
+				</div>
 				{% else %}
 
-				{% if user.is_authenticated %}
-				<div>Vous êtes connecté, {{user.username}} ! <a href="/deconnexion">deconnecter</a><div>
+					{% if user.is_authenticated %}
+					<div>
+						Vous êtes connecté, {{user.username}} ! <a href="/deconnexion">deconnecter</a>
+					</div>
 
-				{% else %}
-				<form method="post" action=".">
-					{% csrf_token %}
-					{{form.as_p}}
-					<input type="submit"/>
-				</form>
-				<p><a href="/signup">inscrivez-vous</a></p>
-				{% endif %}
+					{% else %}
+					<form method="post" action=".">
+						{% csrf_token %}
+						{{form.as_p}}
+						<input type="submit"/>
+					</form>
+					<p><a href="/signup">inscrivez-vous</a></p>
+					{% endif %}
 				{% endif %}
 			</div>
 		</div>
@@ -66,9 +77,9 @@
 	</div>
 	<script src="/assets/js/jquery-1.10.2.js"></script>
 	<script src="/assets/js/bootstrap.min.js"></script>
-</body>
 
-<footer id="pieddepage">
-	 site créé dans le cadre du module programmation web par Florent ANICET et Shanthan SIVARAJAH
-</footer>
+	<footer id="footer">
+		 site créé dans le cadre du module programmation web par Florent ANICET et Shanthan SIVARAJAH
+	</footer>
+</body>
 </html>

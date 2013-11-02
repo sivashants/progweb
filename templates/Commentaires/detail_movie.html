@@ -1,24 +1,30 @@
 {% extends "base.html"%}
 	{% block content %}
+		<div class="movieDetails">
+			<h2 class="title">{{ movie.titre}} (type: {{movie.categorie.nom}})</h2>
 
-		<h2 class="movieTitle">{{ movie.titre}}<span class="small"> de type {{movie.categorie.nom}}</span></h2>
+			<div class="info">
+				Réalisé par {{movie.realisateur}} sortie le {{movie.release_date|date:"DATE_FORMAT"}} 			
+			</div>
 
-		<div class="info">Réalisé par {{movie.realisateur}} sortie le {{movie.release_date|date:"DATE_FORMAT"}}</div>
+			<div class="contenu"></br>
+				{{movie.resume|linebreaks}}
+			</div>
 
-		<div class="contenu">{{movie.resume|linebreaks}}</div>
-
-		{% if user.is_authenticated %}
-			<div><a href="{{movie.id}}/comments"> laissez votre avis </a></div>
-		{%endif%}
-		
-		{% for comment in comments %}
-			{%if comment.movie = movie %}	
-				<div class="comments">
-				<h3>{{comment.titre}}</h3>
-				<p>{{comment.contenu}}</p>
-				<p>{{comment.author.username}}</p>
+			{% if user.is_authenticated %}
+			<div>
+				<a href="{{movie.id}}/comments"> laissez votre avis </a>
+			</div>
 			{%endif%}
-
-		{% endfor %}
-
+		
+			{% for comment in comments %}
+				{%if comment.movie = movie %}	
+					<div class="comments">
+						<h3>{{comment.titre}}</h3>
+						<p>{{comment.contenu}}</p>
+						<p class="author">posté par {{comment.author.username}}</p>
+					</div>
+				{%endif%}
+			{% endfor %}
+		</div>
 	{% endblock %}

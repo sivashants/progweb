@@ -1,22 +1,26 @@
 body { background-color:#386AC7 }
 
-p
-{
+
+p{
 	color: white;
+	font-weight: bold;
 }
-#site-name{
+
+#site-name, #footer{
 	text-align: center
 }
 
-#movieTitle {
+.author, .title, .info, .introduction {
 	color: #000000 ;
-	text-align: right
+}
+
+#footer {
+	color: #490052
 }
 
 nav#menu{
 	float:top-left;
 	width:33%
-	
 }
 
 div#connexion 
@@ -26,12 +30,5 @@ div#connexion
 }
 
 div#center{
-
 	overflow=hidden;
 }
-
-div#pieddepage {
-	color:#000000;
-	text-align:center
-}
-

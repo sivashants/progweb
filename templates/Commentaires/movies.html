@@ -1,15 +1,15 @@
 ﻿{%extends "base.html"%}	
 	{%block content%}
 	
-			<div class="movie">
-			{% for movie in movies %}
-				<h3 class="movieTitle">{{movie.titre}}</h3>
-				<p>{{movie.resume|truncatewords_html:80}}</p>
-				<p><a href="{{ movie.id }}">Details</a>
-		
-				{% empty %}
-				<p> Aucun films dispo </p>
+		<div class="movie">
+		{% for movie in movies %}
+			<h3 class="title">{{movie.titre}}</h3>
+			<p>{{movie.resume|truncatewords_html:80}}</p>
+			<p><a href="{{ movie.id }}">Details</a>
+	
+			{% empty %}
+			<p> Aucun films dispo </p>
 
-			{% endfor %}		
-			</div>
+		{% endfor %}		
+		</div>
 	{%endblock%}
