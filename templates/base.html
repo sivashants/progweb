@@ -2,75 +2,72 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-        <head>        
-                <meta charset="utf-8"/>
-               
-                <link href="/assets/css/style.css" rel="stylesheet" type="text/css" media="all">
-		<link href="/assets/css/bootstrap.css" rel="stylesheet">
-		<link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
-	<title>							{% block title %} Cinecritics : Données vos avis sur les films, serie,mangas ...{% endblock %}               </title>
-        </head>
+<head>        
+        <meta charset="utf-8"/>
+       
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" media="all">
+	<link href="/assets/css/bootstrap.css" rel="stylesheet">
+	<link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<title>	
+		{% block title %} Cinecritics : Données vos avis sur les films et les séries	
+		{% endblock %}
+	</title>
+</head>
         
-        <body>
-                
-                <h1 id="title"> Cinecritics </h1>
+<body>
+        
+        <h1 id="site-name"> Cinecritics </h1>
 	<div class="row-fluid">
-               {% block nav %} 
-                <!-- Side menu --> 
+	       {% block nav %} 
+	        <!-- Side menu --> 
 
-	<div class="span2">
-                <nav id="menu">
-                        <ul >
-                                <li> <a href="/">home</a> </li>
-                                <li> <a href="/movies">films</a> </li>
-                                <li> <a href="/tv-series">Series</a> </li>
-                                <li> <a href="/mangas" >Mangas</a> </li>
-                                                               
-
-                        </ul>
-                </nav>
-
-	</div>
-                {% endblock %}             
-<div class="span6">
-	{% block content %}
-		
-	{% endblock %}
-
-</div>	
-	{% block connexion %}
-
-	<div class="span3">
-		<div class="connexion">
-
-
-			{% if error %}
-			<p><strong> user ou mdp incorrect</strong></p>
-			{% else %}
-
-			{% if user.is_authenticated %}
-
-			<p>Vous êtes connecté, {{user.username}} ! <a href="/deconnexion">deconnecter</a><p>
-
-			{% else %}
-			<form method="post" action=".">
-			{% csrf_token %}
-			{{form.as_p}}
-			<input type="submit"/>
-			</form>
-			<p><a href="/signup">inscrivez-vous</a></p>
-			{% endif %}
-			{% endif %}
+		<div class="span2">
+			<nav id="menu">
+			        <ul >
+			                <li> <a href="/">home</a> </li>
+			                <li> <a href="/movies">films</a> </li>
+			                <li> <a href="/tv-series">Series</a> </li>
+			        </ul>
+			</nav>
 		</div>
+	        {% endblock %} 
+	    
+		<div class="span7">
+			{% block content %}	
+			{% endblock %}
+		</div>	
+
+		{% block connexion %}
+
+		<div class="span3">
+			<div class="connexion">
+
+				{% if error %}
+				<p><strong> user ou mdp incorrect</strong></p>
+				{% else %}
+
+				{% if user.is_authenticated %}
+				<div>Vous êtes connecté, {{user.username}} ! <a href="/deconnexion">deconnecter</a><div>
+
+				{% else %}
+				<form method="post" action=".">
+					{% csrf_token %}
+					{{form.as_p}}
+					<input type="submit"/>
+				</form>
+				<p><a href="/signup">inscrivez-vous</a></p>
+				{% endif %}
+				{% endif %}
+			</div>
+		</div>
+
+		{% endblock %}
+
 	</div>
-
-	{% endblock %}
-
-</div>
-	<script src="../assets/js/jquery-1.10.2.js"></script>
-	<script src="../assets/js/bootstrap.min.js"></script>
-
+	<script src="/assets/js/jquery-1.10.2.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
 </body>
+
 <footer id="pieddepage">
 	 site créé dans le cadre du module programmation web par Florent ANICET et Shanthan SIVARAJAH
 </footer>

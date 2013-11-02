@@ -76,7 +76,7 @@ cd cinecritics
 (hello_django) $ ./manage.py loaddata all.json
 
 
-# modifier l'adresse ip ligne 23 du fichier cinecritics_nginx avec celle correspondante
+# modifier l'adresse ip ligne 23 avec celle correspondante
 mv cinecritics_nginx /etc/nginx/sites-enabled
 service nginx restart
 

@@ -1,21 +1,19 @@
 {% extends "base.html" %}
-{% block connexion %}
+	{% block content %}
 
-{% endblock %}
+			{% if save = True %}
+			<div> Merci pour votre contribution,<a href="/movies/{{id}}"> retourner à la fiche film </a>
+			</div>
 
-{% block content %}
- <div>
-{% if save = True %}
-<p> Merci pour votre contribution,<a href="/movies/{{id}}"> retourner à la fiche film </a></p>
-{% else %}
-<form  method="post" action=".">
+			{% else %}
+			<form  method="post" action=".">
 
- {% csrf_token %}
- {{ form.as_p }}
- <input type="submit"/>
-</form>
-{% endif %}
-</div>
+				{% csrf_token %}
+				{{ form.as_p }}
+				<input type="submit"/>
+			</form>
+
+			{% endif %}
 	
-{% endblock %}
+	{% endblock %}
 

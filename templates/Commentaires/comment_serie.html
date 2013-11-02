@@ -1,21 +1,17 @@
 {% extends "base.html" %}
-{% block connexion %}
+	{% block content %}
+		{% if save = True %}
 
-{% endblock %}
+		<div> Merci pour votre contribution,<a href="/tv-series/{{id}}"> retourner à la fiche serie </a></div>
 
-{% block content %}
- <div>
-{% if save = True %}
-<p> Merci pour votre contribution,<a href="/tv-series/{{id}}"> retourner à la fiche serie </a></p>
-{% else %}
-<form  method="post" action=".">
+		{% else %}
 
- {% csrf_token %}
- {{ form.as_p }}
- <input type="submit"/>
-</form>
-{% endif %}
-</div>
-	
-{% endblock %}
+		<form  method="post" action=".">
 
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit"/>
+		</form>
+
+		{% endif %}
+	{% endblock %}

@@ -3,15 +3,18 @@
 	{% endblock %}
 
 	{%block content %}
-	{% if save = True %}
-	<p> bienvenue dans notre comunauté!! </p>
-	{%else%}
-	<form method="post" action".">
-	{%csrf_token%}
-	{{form.as_p}}
-	<input type="submit"/>
-	<input type="reset"/>
-	</form>
-	{% endif %}
+		{% if save = True %}
+
+		<div> bienvenue dans notre comunauté!! </div>
+
+		{%else%}
+		<form method="post" action".">
+			{%csrf_token%}
+			{{form.as_p}}
+			<input type="submit"/>
+			<input type="reset"/>
+		</form>
+
+		{% endif %}
 	{% endblock %}
 	

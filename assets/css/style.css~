@@ -1,8 +1,16 @@
-body { background-color:#3399FF }
+body { background-color:#3990ED }
 
 p
 {
 	color: white;
+}
+#site-name{
+	text-align: center
+}
+
+#movieTitle {
+	color: #000000 ;
+	text-align: right
 }
 
 nav#menu{
@@ -22,6 +30,8 @@ div#center{
 	overflow=hidden;
 }
 
-footer { 
+div#pieddepage {
 	color:#000000;
+	text-align:center
 }
+

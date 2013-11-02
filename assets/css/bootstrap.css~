@@ -227,11 +227,11 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #FF0000;
-  background-color: #3399ff;
+
 }
 
 a {
-  color: #red;
+  color: #FF912B;
   text-decoration: none;
 }
 
@@ -754,7 +754,7 @@ h5 small,
 h6 small {
   font-weight: normal;
   line-height: 1;
-  color: #999999;
+  color: #000000;
 }
 
 h1,

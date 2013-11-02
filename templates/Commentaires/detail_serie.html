@@ -1,33 +1,34 @@
 {% extends "base.html"%}
-{% block content %}
+	{% block content %}
 
-	<h2>{{ serie.titre}}</h2>
+		<h2>{{ serie.titre}}</h2>
 
-	<p class="info">Réalisé par {{serie.realisateur}} série de {{serie.seasons}}
-		{% if serie.Completed%}
-			terminée.
+		<div class="info">Réalisé par {{serie.realisateur}} série de {{serie.seasons}}
+			{% if serie.Completed%}
+				terminée.
 
-		{% else %}
-			en cours.
-		{%endif%}
-	</p>
-	<div class="contenu">{{serie.resume|linebreaks}}</div>
-		{% if user.is_authenticated %}
+			{% else %}
+				en cours.
+			{%endif%}
+		</div>
 
-			<p><a href="{{serie.id}}/comments"> laissez votre avis</a></p>
+		<div class="contenu">{{serie.resume|linebreaks}}</div>
+			{% if user.is_authenticated %}
 
-		{%endif%}
+				<p><a href="{{serie.id}}/comments"> laissez votre avis</a></p>
 
-		{%for comment in comments %}
-			{%if comments.serie = serie %}	
-				<div class ="comments">
-					<h3>{{comment.titre}}</h3>
-					<p>{{comment.contenu}}</p>
-					<p>{{comment.author}}</p>
-				</div>
-			{%endif%}	
-		{%endfor%}
+			{%endif%}
 
-	</div>
+			{%for comment in comments %}
+				{%if comments.serie = serie %}	
+					<div class ="comments">
+						<h3>{{comment.titre}}</h3>
+						<p>{{comment.contenu}}</p>
+						<p>{{comment.author}}</p>
+					</div>
+				{%endif%}	
+			{%endfor%}
 
-{% endblock %}
+		</div>
+
+	{% endblock %}

@@ -1,8 +1,16 @@
-body { background-color:#3399FF }
+body { background-color:#386AC7 }
 
 p
 {
 	color: white;
+}
+#site-name{
+	text-align: center
+}
+
+#movieTitle {
+	color: #000000 ;
+	text-align: right
 }
 
 nav#menu{
